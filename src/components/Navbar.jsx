@@ -15,8 +15,8 @@ function Navbar() {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           {/* Using absolute path for images in public directory */}
-          <img src="/Agrobazaar_logo.png" alt="Agrobazaar Logo" className="h-10 w-auto" />
-          <span className="text-xl font-bold">Agrobazaar</span>
+          <img src="/mrida_logo.png" alt="Mrida Logo" className="h-10 w-auto" />
+          <span className="text-xl font-bold">Mrida</span>
         </div>
 
         {/* Desktop Nav - Using <Link> components */}

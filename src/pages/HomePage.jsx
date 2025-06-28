@@ -56,8 +56,8 @@ function HomePage() {
             <img src="/working_farmers.jpg" alt="Working Farmer" className="rounded-lg shadow-md" />
           </div>
           <div className="md:w-1/2">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Agrobazaar?</h2>
-            <p className="text-gray-700 mb-4">Agrobazaar empowers farmers and laborers by providing a digital platform for renting, selling, and hiring in agriculture. It's designed to be simple, effective, and accessible—even for those with minimal smartphone experience.</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Mrida?</h2>
+            <p className="text-gray-700 mb-4">Mrida empowers farmers and laborers by providing a digital platform for renting, selling, and hiring in agriculture. It's designed to be simple, effective, and accessible—even for those with minimal smartphone experience.</p>
             <ul className="list-disc list-inside text-gray-600">
               <li>Affordable access to tools</li>
               <li>Secure and verified listings</li>
