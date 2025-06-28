@@ -7,7 +7,6 @@ function HomePage() {
       <section className="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden" style={{ backgroundImage: "url('/farm.jpg')" }}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
         
-        {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-400/30 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-40 h-40 bg-emerald-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>

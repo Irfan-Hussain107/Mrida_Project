@@ -14,12 +14,10 @@ function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          {/* Using absolute path for images in public directory */}
           <img src="/mrida_logo.png" alt="Mrida Logo" className="h-10 w-auto" />
           <span className="text-xl font-bold">Mrida</span>
         </div>
 
-        {/* Desktop Nav - Using <Link> components */}
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="hover:underline" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/rent-buy-tools" className="hover:underline" onClick={() => setIsOpen(false)}>Rent/Buy Tools</Link>
@@ -39,14 +37,13 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu - Using <Link> components */}
       <div
         id="mobile-menu"
         className={`absolute top-full left-0 w-full z-40 bg-green-600 transform origin-top
           transition-all duration-300 ease-in-out md:hidden px-4 pb-4 space-y-2
           ${isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}
       >
-        {/* onClick={toggleMenu} closes the menu after navigation. */}
+
         <Link to="/" className="block py-2 hover:underline" onClick={toggleMenu}>Home</Link>
         <Link to="/rent-buy-tools" className="block py-2 hover:underline" onClick={toggleMenu}>Rent/Buy Tools</Link>
         <Link to="/sell-tools" className="block py-2 hover:underline" onClick={toggleMenu}>Sell Tools</Link>
