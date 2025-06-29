@@ -1,11 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 function RegisterPage() {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    contact: '',
+    password: '',
+    re_entered_password: '',
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Register form submitted');
-    alert('Registration simulated! In a real app, you would create an account.');
+
+    try {
+      const res = await axios.post('http://localhost:8001/user', formData, {
+        withCredentials: true
+      });
+
+      alert(res.data.message || "Registered!");
+      navigate("/login"); // Redirect after successful registration
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.error || "Registration failed.");
+    }
   };
 
   return (
@@ -36,9 +66,11 @@ function RegisterPage() {
                 <label className="block text-sm font-medium mb-1" htmlFor="fullname">Full Name</label>
                 <input
                   type="text"
-                  id="fullname"
+                  id="name"
                   placeholder="Enter your full name"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -47,9 +79,11 @@ function RegisterPage() {
                 <label className="block text-sm font-medium mb-1" htmlFor="email">Mobile Number or Email</label>
                 <input
                   type="text"
-                  id="email"
+                  id="contact"
                   placeholder="Enter mobile or email"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600"
+                  value={formData.contact}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -61,6 +95,8 @@ function RegisterPage() {
                   id="password"
                   placeholder="Create a password"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600"
+                  value={formData.password}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -69,9 +105,11 @@ function RegisterPage() {
                 <label className="block text-sm font-medium mb-1" htmlFor="confirm">Confirm Password</label>
                 <input
                   type="password"
-                  id="confirm"
+                  id="re_entered_password"
                   placeholder="Re-enter your password"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600"
+                  value={formData.re_entered_password}
+                  onChange={handleChange}
                   required
                 />
               </div>
